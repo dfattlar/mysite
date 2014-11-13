@@ -47,7 +47,7 @@
       <div class="panel-body">
         <div class="row">
           <div class="alert alert-info col-md-6 col-buffer-left text-center" role="alert">
-            <strong>Run Pace:</strong> {{vm.pace.minPer}}
+            <strong>Run Pace:</strong> {{vm.pace.minPer}} Per {{vm.form.conversion}}
           </div>
           <div class="alert alert-info col-md-6 col-buffer-right text-center" role="alert">
             <strong>{{vm.selectedRace.name}} Goal Time:</strong> 
@@ -55,7 +55,7 @@
           </div>
         </div>
         <table class="table table-striped">
-          <th>{{vm.form.conversion}}</th>
+          <th>Mile</th>
           <th>Notes</th>
           <tr ng-repeat="mile in vm.selectedRace.rows">
             <td>{{mile.mile}}</td>
