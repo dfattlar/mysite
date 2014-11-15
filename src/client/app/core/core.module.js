@@ -13,7 +13,7 @@
         /*
          * 3rd Party modules
          */
-        'ngplus', 'timer'
+        'ngplus', 'timer', 'mediaPlayer'
     ]);
 
 })();

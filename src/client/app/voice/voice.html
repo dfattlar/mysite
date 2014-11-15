@@ -1,5 +1,30 @@
 <div class="jumbotron">
   <div class="container">
+    <button class='btn' ng-click="startApp()" ng-hide="vm.ready">Get Started!</button>
+    <div ng-show="vm.ready">
+      <form name="form" ng-submit="vm.addTodo()">
+        <input type="text" name="newtodo" ng-model="vm.newTodo" required/>
+        <button class='btn' ng-disabled="form.$invalid">+ Add</button>
+      </form>
+      <button class='btn' ng-click="vm.clearCompleted()">Clear Completed</button>
+      <ul>
+        <li ng-repeat="todo in vm.todos">
+          <input type="checkbox" ng-model="todo.done" />{{$index+1}}
+          <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+        </li>
+      </ul>
+      <timer countdown="600" autostart="false" interval="1000">{{countdown}}</timer>
+      <button class="btn" ng-click="startTimer()" ng-disabled="timerRunning">Start Timers</button>
+      <button class="btn" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timers</button>
+      <!-- <button class="btn" ng-click="addTime()">Add 1 Minute</button>-->
+
+      <audio media-player="audio1">
+        <source src="http://upload.wikimedia.org/wikipedia/en/d/d0/Rick_Astley_-_Never_Gonna_Give_You_Up.ogg" type="audio/ogg">
+      </audio>
+      <span ng-show="audio1.playing">Player status: Playing</span>
+      <span ng-show="!audio1.playing">Player status: Paused</span>
+    </div>
+    
     <div class='row'>
       <div class='col-md-1'></div>
       <div class='col-md-11'>
@@ -10,20 +35,30 @@
   </div>
 </div>
 <div>
-  <form name="form" ng-submit="vm.addTodo()">
-    <input type="text" name="newtodo" ng-model="vm.newTodo" required/>
-    <button ng-disabled="form.$invalid">Go</button>
-  </form>
-  <button ng-click="vm.clearCompleted()">Clear Completed</button>
-  <ul>
-    <li ng-repeat="todo in vm.todos">
-      <input type="checkbox" ng-model="todo.done" />{{$index+1}}
-      <span ng-class="{'done':todo.done}">{{todo.title}}</span>
-    </li>
-  </ul>
-  <p>yes</p>
+  <div class='container'>
+    <button class='btn' ng-click='startApp()'>Get Started!</button>
+    <form name="form" ng-submit="vm.addTodo()">
+      <input type="text" name="newtodo" ng-model="vm.newTodo" required/>
+      <button class='btn' ng-disabled="form.$invalid">+ Add</button>
+    </form>
+    <button class='btn' ng-click="vm.clearCompleted()">Clear Completed</button>
+    <ul>
+      <li ng-repeat="todo in vm.todos">
+        <input type="checkbox" ng-model="todo.done" />{{$index+1}}
+        <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+      </li>
+    </ul>
+    <timer countdown="600" autostart="false" interval="1000">{{countdown}}</timer>
+    <button class="btn" ng-click="startTimer()" ng-disabled="timerRunning">Start Timers</button>
+    <button class="btn" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timers</button>
+    <!-- <button class="btn" ng-click="addTime()">Add 1 Minute</button>-->
+    
+    <audio media-player="audio1">
+      <source src="http://upload.wikimedia.org/wikipedia/en/d/d0/Rick_Astley_-_Never_Gonna_Give_You_Up.ogg" type="audio/ogg">
+    </audio>
+    <span ng-show="audio1.playing">Player status: Playing</span>
+    <span ng-show="!audio1.playing">Player status: Paused</span>
+  </div>
   
-  <timer countdown="5" interval="1000">{{countdown}}</timer>
-  <button class="btn" onclick="addCDSeconds('countdown-timer', 10)" type="button">Add 10 Seconds</button>
 <div class='color0'></div>
 <div class='color1'></div>
