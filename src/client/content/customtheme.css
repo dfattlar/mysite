@@ -136,6 +136,21 @@ h4 {
   text-decoration: none;
 }
 
+/* Voice --------------------------------------------------*/
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+button.pulse {
+  -webkit-animation-name: greenPulse;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.btn[disabled]{-webkit-animation-name:none;}
+
 /* Slider --------------------------------------------------*/
 .slide.ng-hide-add,
 .slide.ng-hide-remove {

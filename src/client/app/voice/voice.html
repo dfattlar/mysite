@@ -1,64 +1,37 @@
 <div class="jumbotron">
   <div class="container">
-    <button class='btn' ng-click="startApp()" ng-hide="vm.ready">Get Started!</button>
+    <div ng-hide="vm.ready">
+      <h1>Relax. Remember.</h1>
+      <h4>Take 10 minutes to meditate. As the important stuff pops in your head, note it by saying 'New Item...'</h4>
+      <button class='btn' ng-click="startApp()">Get Started!</button>
+    </div>  
     <div ng-show="vm.ready">
-      <form name="form" ng-submit="vm.addTodo()">
-        <input type="text" name="newtodo" ng-model="vm.newTodo" required/>
-        <button class='btn' ng-disabled="form.$invalid">+ Add</button>
-      </form>
-      <button class='btn' ng-click="vm.clearCompleted()">Clear Completed</button>
-      <ul>
-        <li ng-repeat="todo in vm.todos">
-          <input type="checkbox" ng-model="todo.done" />{{$index+1}}
-          <span ng-class="{'done':todo.done}">{{todo.title}}</span>
-        </li>
-      </ul>
-      <timer countdown="600" autostart="false" interval="1000">{{countdown}}</timer>
-      <button class="btn" ng-click="startTimer()" ng-disabled="timerRunning">Start Timers</button>
-      <button class="btn" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timers</button>
-      <!-- <button class="btn" ng-click="addTime()">Add 1 Minute</button>-->
-
-      <audio media-player="audio1">
-        <source src="http://upload.wikimedia.org/wikipedia/en/d/d0/Rick_Astley_-_Never_Gonna_Give_You_Up.ogg" type="audio/ogg">
-      </audio>
-      <span ng-show="audio1.playing">Player status: Playing</span>
-      <span ng-show="!audio1.playing">Player status: Paused</span>
-    </div>
-    
-    <div class='row'>
-      <div class='col-md-1'></div>
-      <div class='col-md-11'>
-        <p>{{vm.text}}</p>
-        <h1>Voice</h1>
+      <div class='col-md-4'>
+        <timer countdown="600" autostart="false" interval="1000">
+          <h1>{{minutes}}:{{sseconds}}</h1>
+        </timer>
+        <button class="btn pulse" ng-click="startTimer()" ng-disabled="timerRunning">Start Timers</button>
+        <button class="btn" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timers</button>
+        <!-- <button class="btn" ng-click="addTime()">Add 1 Minute</button>-->
       </div>
+      <div class='col-md-8'>
+        <h2>Memory List:</h2>
+        <ul>
+          <li ng-repeat="todo in vm.todos">
+            <input type="checkbox" ng-model="todo.done" />{{$index+1}}
+            <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+          </li>
+        </ul>
+      </div>
+      <!--
+        <audio media-player="audio1">
+          <source src="http://upload.wikimedia.org/wikipedia/en/d/d0/Rick_Astley_-_Never_Gonna_Give_You_Up.ogg" type="audio/ogg">
+        </audio>
+        <span ng-show="audio1.playing">Player status: Playing</span>
+        <span ng-show="!audio1.playing">Player status: Paused</span>
+      -->
     </div>
   </div>
 </div>
-<div>
-  <div class='container'>
-    <button class='btn' ng-click='startApp()'>Get Started!</button>
-    <form name="form" ng-submit="vm.addTodo()">
-      <input type="text" name="newtodo" ng-model="vm.newTodo" required/>
-      <button class='btn' ng-disabled="form.$invalid">+ Add</button>
-    </form>
-    <button class='btn' ng-click="vm.clearCompleted()">Clear Completed</button>
-    <ul>
-      <li ng-repeat="todo in vm.todos">
-        <input type="checkbox" ng-model="todo.done" />{{$index+1}}
-        <span ng-class="{'done':todo.done}">{{todo.title}}</span>
-      </li>
-    </ul>
-    <timer countdown="600" autostart="false" interval="1000">{{countdown}}</timer>
-    <button class="btn" ng-click="startTimer()" ng-disabled="timerRunning">Start Timers</button>
-    <button class="btn" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timers</button>
-    <!-- <button class="btn" ng-click="addTime()">Add 1 Minute</button>-->
-    
-    <audio media-player="audio1">
-      <source src="http://upload.wikimedia.org/wikipedia/en/d/d0/Rick_Astley_-_Never_Gonna_Give_You_Up.ogg" type="audio/ogg">
-    </audio>
-    <span ng-show="audio1.playing">Player status: Playing</span>
-    <span ng-show="!audio1.playing">Player status: Paused</span>
-  </div>
-  
 <div class='color0'></div>
 <div class='color1'></div>
