@@ -151,6 +151,8 @@ button.pulse {
 
 .btn[disabled]{-webkit-animation-name:none;}
 
+.list-items{font-size: 1.8em; font-family: 'Josefin Slab';}
+
 /* Slider --------------------------------------------------*/
 .slide.ng-hide-add,
 .slide.ng-hide-remove {

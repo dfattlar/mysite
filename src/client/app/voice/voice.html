@@ -18,18 +18,11 @@
         <h2>Memory List:</h2>
         <ul>
           <li ng-repeat="todo in vm.todos">
-            <input type="checkbox" ng-model="todo.done" />{{$index+1}}
-            <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+            <span ng-class="{'done':todo.done}" class="list-items">{{todo.title}}</span>
+            <input type="checkbox" ng-model="todo.done" />
           </li>
         </ul>
       </div>
-      <!--
-        <audio media-player="audio1">
-          <source src="http://upload.wikimedia.org/wikipedia/en/d/d0/Rick_Astley_-_Never_Gonna_Give_You_Up.ogg" type="audio/ogg">
-        </audio>
-        <span ng-show="audio1.playing">Player status: Playing</span>
-        <span ng-show="!audio1.playing">Player status: Paused</span>
-      -->
     </div>
   </div>
 </div>

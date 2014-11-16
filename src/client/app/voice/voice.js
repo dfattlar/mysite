@@ -46,24 +46,28 @@
         $scope.startTimer = function (){
             $scope.$broadcast('timer-start');
             $scope.timerRunning = true;
+            ion.sound.play("bell_ring");
+            ion.sound.play("song", {loop: true});
+            
         };
         $scope.stopTimer = function (){
             $scope.$broadcast('timer-stop');
             $scope.timerRunning = false;
+            ion.sound.pause("song");
         };
+
+        $scope.$on('timer-stopped', function (event, args) {
+          if(args.minutes === 0 && args.seconds === 0){
+            ion.sound.stop("song");
+            ion.sound.play("bell_ring");
+            console.log('time is up!');
+            return;
+          }
+          console.log('timer-stopped args = ', args);
+        });
         $scope.addTime = function () {
             $scope.$broadcast('timer-add-cd-seconds', 60);
         }
-        
-        
-// access properties
-  console.log($scope.audio1);
-
-  $scope.mySpecialPlayButton = function () {
-    $scope.customText = 'I started angular-media-player with a custom defined action!';
-    $scope.audio1.playPause();
-  };
-        
         
         function addTodo(){
           vm.todos.push({'title':vm.newTodo, 'done':false});
@@ -76,6 +80,17 @@
           })
         }
         
+      
+        ion.sound({
+            sounds: [
+                {name: "bell_ring"},
+                {name: "song"}
+            ],
+            path: "../content/sounds/",
+            preload: true,
+            volume: 1.0
+        });
+      
         activate();
 
         function activate() {
