@@ -1,0 +1,56 @@
+<div class="jumbotron">
+  <div class="container" ng-model="vm.page">
+    
+    <div ng-show="vm.page === 0">
+      <div class="alert alert-danger">
+      This application requires that you use a recent version of Google Chrome.
+      </div>
+      <h1>Relax &#38 Remember.</h1>
+      <h4>Take 10 minutes to meditate. Make a list as the important stuff pops in your head.
+      <button class='btn btn-default btn-lg' ng-click="change()">Get Started!</button>
+    </div>
+    
+    <div ng-show="vm.page === 1">
+      <h1>Let's run a test.</h1>
+      <ul>
+        <li>
+          <h4><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+          Plug in headphones that have a microphone.</h4>
+        </li>
+        <li>
+          <h4>Allow the application to use your microphone if prompted above (top right).</h4>
+        </li>
+        <li>
+          <h4>Wait for the red dot to appear in your browser tab.</h4>
+        </li>
+        <li>
+          <h4>Say: "New Item testing"</h4>
+        </li>
+      </ul>
+    </div>
+    
+    <div ng-show="vm.page === 2">
+      <div class='col-md-4'>
+        <timer countdown="600" autostart="false" interval="1000">
+          <h1 class="large-top-pad">{{minutes}}:{{sseconds}}</h1>
+        </timer>
+        <button class="btn btn-lg pulse" ng-click="startTimer()" ng-disabled="timerRunning">Start Timer</button>
+        <button class="btn btn-default btn-lg" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop</button>
+        <!-- <button class="btn" ng-click="addTime()">Add 1 Minute</button> -->
+      </div>
+      <div class='col-md-8'>
+        <h2>Things to remember...</h2>
+        <h4 class="note" ng-hide="vm.emptyList">*Add an item to the list by saying "New Item"</h4>
+        <ul>
+          <li ng-repeat="todo in vm.todos">
+            <input type="checkbox" ng-model="todo.done" />
+            <span ng-class="{'done':todo.done}" class="list-items">{{todo.title}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<div class='color0'></div>
+<div class='color1'></div>
