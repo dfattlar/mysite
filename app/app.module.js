@@ -23,7 +23,8 @@
         'app.main',
         'app.tom',
         'app.run-plan',
-        'app.layout'
+        'app.layout',
+        'app.rr'
     ]);
 
 })();
