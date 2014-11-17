@@ -92,7 +92,7 @@
                 {name: "bell_ring"},
                 {name: "song"}
             ],
-            path: "../content/sounds/",
+            path: "content/sounds/",
             preload: true,
             volume: 1.0
         });
