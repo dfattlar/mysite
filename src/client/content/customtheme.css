@@ -70,6 +70,8 @@ footer p {color: #979697;
   font-weight: 400;
   font-size: 7.5em;
   color: #fff;
+}
+.large-top-pad{
   padding-top: 200px;
 }
 .jumbotron p {
@@ -136,6 +138,23 @@ h4 {
   text-decoration: none;
 }
 
+.btn-default{
+  background-color: #b0b0b0;
+  border-color: #333;
+  font-family: 'Josefin Slab';
+  font-weight: bold;
+}
+.btn-default:hover{
+  background-color: #8c8c8c;
+  border-color: #333;
+}
+.alert-danger{
+  color: #333;
+  background-color: #c7c7c7;
+  border-color: #333;
+  font-weight: bold;
+}
+
 /* Voice --------------------------------------------------*/
 @-webkit-keyframes greenPulse {
   from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
@@ -152,6 +171,9 @@ button.pulse {
 .btn[disabled]{-webkit-animation-name:none;}
 
 .list-items{font-size: 1.8em; font-family: 'Josefin Slab';}
+
+.done{text-decoration: line-through; color: #ccc;}
+h4.note{color: #343434; font-size: 1.75em; font-family: 'Josefin Slab';}
 
 /* Slider --------------------------------------------------*/
 .slide.ng-hide-add,
@@ -222,8 +244,4 @@ button.pulse {
 .pace-input{
   width: 62px;
 }
-
-/* Voice Styles  --------------------------------------------------*/
-
-.done{text-decoration: line-through; color: #ccc;}
 
